@@ -7,11 +7,13 @@
 
     <div class="fruit-container w-full h-40 border border-blue-700 ">CONTENITORE DI TUTTA LA FRUTTA
 
-
-        <div class="fruit-card border border-amber-500">
-            <h2>Nome frutto</h2>
-            <p>Famiglia</p>
+  @for(fruit of fruits; track $index){
+     <div class="fruit-card border border-amber-500">
+            <h2>Nome frutto: {{fruit.name}}</h2>
+            <p>Famiglia: {{fruit.family}}</p>
         </div>
+  }
+       
     </div>
            
 
