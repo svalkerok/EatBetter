@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, inject, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, inject, OnInit, signal } from '@angular/core';
 import { Navbar } from "../navbar/navbar";
 import { HeroSection } from "../hero-section/hero-section";
 import { FruitService } from '../../services/fruit-service';
@@ -15,6 +15,8 @@ export class HomePage implements OnInit {
   private fruitService = inject(FruitService)
   private cdr = inject(ChangeDetectorRef)
   fruits : FruitsModel[] = []
+
+  isClicked = signal(false)
   
   ngOnInit(): void {
     this.fruitService.getAllFruits()
@@ -23,6 +25,10 @@ export class HomePage implements OnInit {
         this.cdr.detectChanges()
       
     })
+  }
+
+  openModal(){
+    this.isClicked.update(open => !open)
   }
   
 }
