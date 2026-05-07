@@ -17,6 +17,7 @@ export class HomePage implements OnInit {
   fruits : FruitsModel[] = []
 
   isClicked = signal(false)
+  el: any = null;
   
   ngOnInit(): void {
     this.fruitService.getAllFruits()
@@ -27,8 +28,15 @@ export class HomePage implements OnInit {
     })
   }
 
-  openModal(){
+  openModal(index: number){
     this.isClicked.update(open => !open)
+    this.el = this.fruits[index]
+    this.isClicked.set(true)
   }
+  closeModal(){
+    this.isClicked.update(close => !close);
+    this.el = null
+  }
+  
   
 }
