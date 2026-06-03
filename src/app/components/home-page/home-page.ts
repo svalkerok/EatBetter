@@ -37,6 +37,8 @@ export class HomePage implements OnInit {
     this.isClicked.update(close => !close);
     this.el = null
   }
+
+
   
   
 }
