@@ -36,7 +36,7 @@ export class FruitService {
     getYourFruit(name: string){
       this.http.get(`/api/fruit/${name}`).subscribe({
         next: (response: any) =>{
-          this.filteredFruit.next(response.body)
+          this.filteredFruit.next(response)
           console.log('Frutti filtrati:', this.filteredFruit)
         },
         error: (error: any) => console.error('errore nel filtraggio frutti:', error)

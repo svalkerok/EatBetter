@@ -1,12 +1,13 @@
-import { ChangeDetectorRef, Component, inject, OnInit, signal } from '@angular/core';
+import { ChangeDetectorRef, Component, inject, Input, OnInit, signal } from '@angular/core';
 import { Navbar } from "../navbar/navbar";
 import { HeroSection } from "../hero-section/hero-section";
 import { FruitService } from '../../services/fruit-service';
 import { FruitsModel } from '../../models/fruits-model';
+import { FormGroup, FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-home-page',
-  imports: [HeroSection, ],
+  imports: [HeroSection,FormsModule ],
   templateUrl: './home-page.html',
   styleUrl: './home-page.css',
 })
@@ -18,7 +19,7 @@ export class HomePage implements OnInit {
 
   isClicked = signal(false)
   el: any = null;
-  yourFruit: any
+ @Input() yourFruit: any
   
   ngOnInit(): void {
     this.fruitService.getAllFruits()
@@ -28,11 +29,14 @@ export class HomePage implements OnInit {
       
     })
 
-    this.fruitService.filteredFruit.subscribe( fruit =>{
+   this.fruitService.filteredFruit.subscribe( fruit =>{
       this.yourFruit = fruit;
       this.cdr.detectChanges()
+      console.log(this.yourFruit)
     })
+
   }
+  
 
   openModal(index: number){
     this.isClicked.update(open => !open)
@@ -43,8 +47,6 @@ export class HomePage implements OnInit {
     this.isClicked.update(close => !close);
     this.el = null
   }
-
-
 
 
   
