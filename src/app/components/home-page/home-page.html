@@ -6,7 +6,15 @@
     <app-hero-section></app-hero-section>
 
     <div class="fruit-container w-full h-fit    ">
-      <div class="fruitsCard-container relative w-[80%] m-auto mt-8 flex items-center align-middle justify-evenly flex-wrap ">
+   
+      <div  >    
+            @if(yourFruit){
+                <div class="border-2 border-red-600 w-[50%] h-[30%]">
+                    <h1>Name:{{yourFruit.name}}</h1>
+                    <h2>Family:{{yourFruit.family}}</h2>
+                </div>
+            } @else {
+                   <div class="fruitsCard-container relative w-[80%] m-auto mt-8 flex items-center align-middle justify-evenly flex-wrap ">
 
           @for(fruit of fruits; track $index){
               <a  class=" m-4 bg-neutral-primary-soft   block max-w-sm p-6 border border-black/5 rounded-md shadow-md hover:cursor-pointer hover:bg-neutral-secondary-medium" (click)="openModal($index)">
@@ -34,21 +42,9 @@
   }
 
       </div>
-      <div  >    
-         <!-- TODO: rivedere come modificare questo punto -->
-       <strong>Frutti cercati:</strong> 
-            @if(yourFruit){
-                <div class="border-2 border-red-600 w-[50%] h-[30%]">
-                    <h1>Name:{{yourFruit.name}}</h1>
-                    <h2>Family:{{yourFruit.family}}</h2>
-                </div>
-            }
-                
-                
-            
 
+ }
       </div>
-
     </div>
 
 

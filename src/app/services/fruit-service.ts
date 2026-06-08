@@ -14,7 +14,7 @@ export class FruitService {
 
   
   fruits$ = new BehaviorSubject<FruitsModel[]> ([]);
-  filteredFruit = new BehaviorSubject<string>('')
+  filteredFruit = new BehaviorSubject<FruitsModel[] | null>(null)
   
 
 

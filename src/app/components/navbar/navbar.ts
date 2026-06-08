@@ -27,7 +27,8 @@ export class Navbar {
       console.log('testo digitato:', this.testoDigitato)
       
     }else{
-      this.service.getAllFruits()
+      this.service.getAllFruits();
+      this.service.filteredFruit.next(null)
     }
   }
 
