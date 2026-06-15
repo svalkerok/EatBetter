@@ -17,14 +17,12 @@ export class Navbar {
   //method to take the searchBar text
   searchFruit(){
    this.service.getAllFruits()
-       console.log(this.testoDigitato)
   }
 
 
   findYourFruit(){
     if(this.testoDigitato !== ''){
       this.service.getYourFruit(this.testoDigitato)
-      console.log('testo digitato:', this.testoDigitato)
       
     }else{
       this.service.getAllFruits();

@@ -25,7 +25,7 @@ export class FruitService {
    return this.http.get(this.baseUrl, ).subscribe({
       next: (response: any) =>{
         this.fruits$.next(response);
-        // console.log('Dati dalla chiamata api',response)
+         console.log('Dati dalla chiamata api',response)
       },
        error: (err: any) => console.error('Errore nella chiamata', err)
     })
