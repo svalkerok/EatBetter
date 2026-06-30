@@ -24,13 +24,29 @@
                 </div> 
               </div>
             }@else if(fruitsByCategory){
+                <div class="border border-blue-700 w-[80%] m-auto mt-10 flex items-center align-middle justify-evenly flex-wrap">
+                    <div class="category-title">
+                                            <h2 class="">Nome categoria :  </h2> <br>
+
+                    </div>
                 @for(fruit of fruitsByCategory; track $index ){
-                    <div class="border border-red-800 w-[80%]" >
-                    <h1>CATEGORIA FRUTTA SELEZIONATA: </h1>
-                      <h4>{{fruit.id}}</h4>
-                    <h4>{{fruit.name}}</h4>
-                </div>
+                        <div class="m-4 bg-neutral-primary-soft   block max-w-sm p-6 border border-black/5 rounded-md shadow-md hover:cursor-pointer hover:bg-neutral-secondary-medium">
+                            <h3><p class="text-3xl font-bold">{{fruit.name}}</p></h3>
+                            <div class="flex mt-1">
+                                <p> <i>Order:</i>  {{fruit.order}}</p> - <p class="ml-2"> <i>Genus:</i> {{fruit.genus}}</p>
+                            </div>
+                            <div>
+                                <h4 class="mt-4 text-xl font-semibold">Valori nutrizionali:</h4>
+                                <p class="mb-2 mt-1" > <i class="font-semibold">Calorie:</i> {{fruit.nutritions?.calories}}</p>
+                                <p class="mb-2"> <i class="font-semibold">Carboidrati:</i> {{fruit.nutritions?.carbohydrates}}</p>
+                                <p class="mb-2"> <i class="font-semibold"> Grassi:</i> {{fruit.nutritions?.fat}}</p>
+                                <p class="mb-2"> <i class="font-semibold">Proteine: </i>{{fruit.nutritions?.protein}}</p>
+                                <p> <i class="font-semibold"> Zuccheri:</i> {{fruit.nutritions?.sugar}}</p>
+                            </div>
+                       </div>
+                   
                 }
+                </div>
                 
 
             }
