@@ -18,8 +18,8 @@ export class FruitService {
   
   fruits$ = new BehaviorSubject<FruitsModel[]> ([]);
   filteredFruit = new BehaviorSubject<FruitsModel | null>(null);
-  selectedCategory = new BehaviorSubject<string[]>(['']);
-  filteredfruitByCategory= new  BehaviorSubject<FruitsModel[] | null>(null);
+  selectedCategory = new BehaviorSubject<string>('');
+  filteredFruitByCategory= new  BehaviorSubject<FruitsModel[] | null>(null);
   
   
 
@@ -31,7 +31,11 @@ export class FruitService {
    return this.http.get(this.baseUrl, ).subscribe({
       next: (response: any) =>{
         this.fruits$.next(response);
-          console.log('Dati dalla chiamata api',response)
+                  console.log('Dati dalla chiamata api 1:',response)
+
+          this.filteredFruitByCategory.next(response)
+
+          console.log('Dati dalla chiamata api 2:',response)
       },
        error: (err: any) => console.error('Errore nella chiamata', err)
     })
@@ -42,8 +46,8 @@ export class FruitService {
     getYourFruit(name: string){
       this.http.get(`/api/fruit/${name}`).subscribe({
         next: (response: any) =>{
-          this.filteredFruit.next(response)
-          console.log('Frutti filtrati:', this.filteredFruit)
+          this.filteredFruit.next(response);
+          // console.log('Frutti filtrati:', this.filteredFruit)
         },
         error: (error: any) => console.error('errore nel filtraggio frutti:', error)
       })
@@ -72,20 +76,20 @@ export class FruitService {
         console.log('Frutto oleoso/secco', categoryList)
     }else if(category === 'All'){       // ! FORSE CE UN PROBLEMA: RICEVO I DATI DALLA API CALL TWO TIMES
       this.getAllFruits();
-      this.filteredfruitByCategory.next(this.fruits$.getValue())
+      this.filteredFruitByCategory.next(this.fruits$.getValue())
       console.log('Risposta da all:', this.getAllFruits())
    } else {
        console.log('Frutto non trovato')
     }
 
-    this.selectedCategory.next(categoryList); 
+    this.selectedCategory.next(category); 
 
 
     let resultCategoryFruits = this.fruits$.getValue().filter((frutto: any) =>{
         return categoryList.includes(frutto.name)
     })
 
-    this.filteredfruitByCategory.next(resultCategoryFruits);
+    this.filteredFruitByCategory.next(resultCategoryFruits);
     console.log('Dati da resultFilteredFruits:' , this.filteredFruit)
   }
 

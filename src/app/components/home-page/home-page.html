@@ -9,6 +9,7 @@
    
       <div>    
             @if(yourFruit){
+                <!-- mostra il frutto che hai cercato nella searchbar -->
              <div class="  w-[60%] m-auto mt-10 bg-white block max-w-sm p-6 border border-black/5 rounded-md shadow-xs hover:bg-neutral-secondary-medium">
                 <div class=" w-[80%] ">
                    <p class="text-3xl font-bold">{{yourFruit.name}}</p>
@@ -23,12 +24,39 @@
                   <p> <i class="font-semibold"> Zuccheri:</i> {{yourFruit.nutritions?.sugar}}</p>
                 </div> 
               </div>
-            }@else if(fruitsByCategory){
-                <div class="border border-blue-700 w-[80%] m-auto mt-10 flex items-center align-middle justify-evenly flex-wrap">
-                    <div class="category-title">
-                                            <h2 class="">Nome categoria :  </h2> <br>
+            }
+             @else if (selectedCategory === 'All'){
+                <!-- mostra tutti i frutti quando clicchi su all's btn -->
+                <div class="fruitsCard-container relative w-[80%] m-auto mt-8 flex items-center align-middle justify-evenly flex-wrap ">
 
-                    </div>
+               @for(fruit of fruits; track $index){
+                   <a  class=" m-4 bg-neutral-primary-soft   block max-w-sm p-6 border border-black/5 rounded-md shadow-md hover:cursor-pointer hover:bg-neutral-secondary-medium" (click)="openModal($index)">
+                    <h5 class="mb-3 text-2xl font-semibold tracking-tight text-heading leading-8" >{{fruit.name}}</h5>
+                    <p class="text-body">{{fruit.family}}</p>
+                  </a>
+                }
+
+                @if(isClicked()){
+                    <div class="modal-card   w-[60%]  bg-white block max-w-sm p-6 border border-default rounded-md shadow-xs hover:bg-neutral-secondary-medium">
+                       <button class=" p-1 mb-3 text-sm rounded-sm border border-amber-700 bg-amber-700 text-white hover:cursor-pointer hover:bg-amber-600" (click)="closeModal()">Close</button>
+                       <h5 class="mb-3 text-3xl font-semibold tracking-tight text-heading leading-8">{{el.name}}</h5>
+                        <div class=" w-[80%] ">
+                           <h4 class="mt-4 text-xl font-semibold">Valori nutrizionali:</h4>
+                           <p class="mb-2" > <i class="font-semibold">Calorie:</i> {{el.nutritions?.calories}}</p>
+                           <p class="mb-2"> <i class="font-semibold">Carboidrati:</i> {{el.nutritions?.carbohydrates}}</p>
+                           <p class="mb-2"> <i class="font-semibold"> Grassi:</i> {{el.nutritions?.fat}}</p>
+                           <p class="mb-2"> <i class="font-semibold">Proteine: </i>{{el.nutritions?.protein}}</p>
+                           <p> <i class="font-semibold"> Zuccheri:</i> {{el.nutritions?.sugar}}</p>
+                        </div> 
+                     </div>      
+                }
+             </div>
+
+            }
+            
+            @else if(fruitsByCategory){
+                <!-- mostra i frutti in base al btn della categoria cliccato -->
+                <div class="border border-blue-700 w-[80%] m-auto mt-10 flex items-center align-middle justify-evenly flex-wrap">
                 @for(fruit of fruitsByCategory; track $index ){
                         <div class="m-4 bg-neutral-primary-soft   block max-w-sm p-6 border border-black/5 rounded-md shadow-md hover:cursor-pointer hover:bg-neutral-secondary-medium">
                             <h3><p class="text-3xl font-bold">{{fruit.name}}</p></h3>
@@ -50,7 +78,10 @@
                 
 
             }
-            @else {
+           
+            @else {   
+                <!-- ! IMPOSTARE LA PAGINA ORIGINALE CON IL TEMPLATE CHE MOSTRA TUTTI I FRUTTI DI DEFAULT -->
+                <!-- mostra tutti i frutti -->
              <div class="fruitsCard-container relative w-[80%] m-auto mt-8 flex items-center align-middle justify-evenly flex-wrap ">
 
                @for(fruit of fruits; track $index){

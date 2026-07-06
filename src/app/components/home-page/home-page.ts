@@ -19,28 +19,39 @@ export class HomePage implements OnInit {
 
   isClicked = signal(false)
   el: any = null;
- @Input() yourFruit: any
-  fruitsByCategory : any = []
+  yourFruit: any
+  fruitsByCategory : FruitsModel[] | null = null;
+  selectedCategory : string = '';
+  allFruit : any
+
   
   ngOnInit(): void {
-    this.fruitService.getAllFruits()
+    this.fruitService.getAllFruits();
+    // subscribe per prendere tutti i dati dei frutti
     this.fruitService.fruits$.subscribe((data) =>{
         this.fruits = data;
         this.cdr.detectChanges()
-      
-    })
+    });
 
+    // subscribe per prendere i dati dei frutti cercati dalla serachbar
    this.fruitService.filteredFruit.subscribe( fruit =>{
       this.yourFruit = fruit;
       this.cdr.detectChanges()
-    })
+    });
 
-    this.fruitService.filteredfruitByCategory.subscribe( data =>{
+    // subscrube per prendere u dati dei frutti di ogni singola categoria
+    this.fruitService.filteredFruitByCategory.subscribe( data =>{
       this.fruitsByCategory = data;
       this.cdr.detectChanges()
-          // console.log(this.categoryFruitSelected)
 
+    });
+
+    // subscribe per tracciare quale categoria è cliccata
+    this.fruitService.selectedCategory.subscribe(category => {
+      this.selectedCategory = category;
+      this.cdr.detectChanges()
     })
+
 
   }
   

@@ -18,7 +18,6 @@ export class Navbar {
   //method to take the searchBar text
   searchFruit(){
    this.service.getAllFruits()
-  //  console.log('searchfruit data', this.searchFruit())
   }
 
 
@@ -34,6 +33,5 @@ export class Navbar {
 
   findFruit(category : string){
     this.service.categoryFruit(category)
-    console.log('categoria dal metodo findFruit:', category)
   }
 }
