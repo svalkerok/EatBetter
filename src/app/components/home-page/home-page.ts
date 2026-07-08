@@ -50,6 +50,7 @@ export class HomePage implements OnInit {
     this.fruitService.selectedCategory.subscribe(category => {
       this.selectedCategory = category;
       this.cdr.detectChanges()
+      console.log('Categoria scelta:',this.selectedCategory )
     })
 
 

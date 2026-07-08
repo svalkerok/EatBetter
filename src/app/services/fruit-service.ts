@@ -33,9 +33,8 @@ export class FruitService {
         this.fruits$.next(response);
                   console.log('Dati dalla chiamata api 1:',response)
 
-          this.filteredFruitByCategory.next(response)
+          // this.filteredFruitByCategory.next(response)
 
-          console.log('Dati dalla chiamata api 2:',response)
       },
        error: (err: any) => console.error('Errore nella chiamata', err)
     })
@@ -76,10 +75,10 @@ export class FruitService {
         console.log('Frutto oleoso/secco', categoryList)
     }else if(category === 'All'){       // ! FORSE CE UN PROBLEMA: RICEVO I DATI DALLA API CALL TWO TIMES
       this.getAllFruits();
-      this.filteredFruitByCategory.next(this.fruits$.getValue())
+      this.filteredFruitByCategory.next(null)
       console.log('Risposta da all:', this.getAllFruits())
    } else {
-       console.log('Frutto non trovato')
+       alert('Frutto non trovato')
     }
 
     this.selectedCategory.next(category); 
