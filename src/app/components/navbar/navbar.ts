@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { FruitService } from '../../services/fruit-service';
 import { FormsModule, NgModel } from '@angular/forms';
 
@@ -14,6 +14,7 @@ export class Navbar {
 
  testoDigitato: string = '';
  categories = [ 'All', 'Sweet', 'Acid', 'Semi-Acid', 'Melon', 'Oleaginous/Dry',]
+ isToggleBtnClicked = signal(false)
 
   //method to take the searchBar text
   searchFruit(){
@@ -33,5 +34,11 @@ export class Navbar {
 
   findFruits(category : string){
     this.service.categoryFruit(category)
+  }
+
+
+  showButton(){
+    this.isToggleBtnClicked.update(open => !open)
+    this.isToggleBtnClicked.set(true)
   }
 }

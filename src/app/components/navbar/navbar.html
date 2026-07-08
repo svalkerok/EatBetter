@@ -14,6 +14,19 @@
         
     </button>
 </form>
+<button id="menu-btn" class="block md:hidden text-gray-400 hover:text-white focus:outline-none" aria-label="Toggle Menu" (click)="isToggleBtnClicked()">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://w3.org">
+        <path id="menu-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+      </svg>
+    </button>
+
+    @if(isToggleBtnClicked()){
+        <!-- ! NON FUNZIONA: DA RIVEDERE QUALCOSA -->
+
+        <div class="border-2 border-blue-700 z-200 w-[50%]">
+            <h1>CONTENUTO DEL TOGGLE</h1>
+        </div>
+    }
 
 
 <div class="navBar-categories w-fit mr-3 p-1 inline-flex ">
