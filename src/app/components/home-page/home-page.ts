@@ -27,6 +27,7 @@ export class HomePage implements OnInit {
   
   ngOnInit(): void {
     this.fruitService.getAllFruits();
+
     // subscribe per prendere tutti i dati dei frutti
     this.fruitService.fruits$.subscribe((data) =>{
         this.fruits = data;
@@ -50,7 +51,6 @@ export class HomePage implements OnInit {
     this.fruitService.selectedCategory.subscribe(category => {
       this.selectedCategory = category;
       this.cdr.detectChanges()
-      console.log('Categoria scelta:',this.selectedCategory )
     })
 
 

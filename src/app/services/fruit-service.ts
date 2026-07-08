@@ -31,10 +31,6 @@ export class FruitService {
    return this.http.get(this.baseUrl, ).subscribe({
       next: (response: any) =>{
         this.fruits$.next(response);
-                  console.log('Dati dalla chiamata api 1:',response)
-
-          // this.filteredFruitByCategory.next(response)
-
       },
        error: (err: any) => console.error('Errore nella chiamata', err)
     })
@@ -46,7 +42,6 @@ export class FruitService {
       this.http.get(`/api/fruit/${name}`).subscribe({
         next: (response: any) =>{
           this.filteredFruit.next(response);
-          // console.log('Frutti filtrati:', this.filteredFruit)
         },
         error: (error: any) => console.error('errore nel filtraggio frutti:', error)
       })
@@ -73,7 +68,7 @@ export class FruitService {
     } else if(category === 'Oleaginous/Dry'){
       categoryList = this.listsFruit[4];
         console.log('Frutto oleoso/secco', categoryList)
-    }else if(category === 'All'){       // ! FORSE CE UN PROBLEMA: RICEVO I DATI DALLA API CALL TWO TIMES
+    }else if(category === 'All'){     
       this.getAllFruits();
       this.filteredFruitByCategory.next(null)
       console.log('Risposta da all:', this.getAllFruits())
@@ -89,7 +84,6 @@ export class FruitService {
     })
 
     this.filteredFruitByCategory.next(resultCategoryFruits);
-    console.log('Dati da resultFilteredFruits:' , this.filteredFruit)
   }
 
 
