@@ -39,6 +39,6 @@ export class Navbar {
 
   showButton(){
     this.isToggleBtnClicked.update(open => !open)
-    this.isToggleBtnClicked.set(true)
+    // this.isToggleBtnClicked.set(true)
   }
 }
