@@ -16,7 +16,9 @@ describe('HomePage', () => {
     await fixture.whenStable();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
+  it('should create the home-page', () => {
+        expect(component).toBeTruthy();
+
+     
   });
 });
