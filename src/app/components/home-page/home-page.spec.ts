@@ -16,7 +16,10 @@ describe('HomePage', () => {
     await fixture.whenStable();
   });
 
-  it('should create the home-page', () => {
+  it('should create the home-page', async() => {
+      const fixture = TestBed.createComponent(HomePage);
+        await fixture.detectChanges();
+        const compiled = fixture.nativeElement as HTMLElement;
         expect(component).toBeTruthy();
 
      
