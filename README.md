@@ -1,59 +1,80 @@
-# EatBetter
+# 🍎 EatBetter
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.2.7.
+Applicazione web sviluppata in Angular per la ricerca e consultazione di informazioni nutrizionali sulla frutta, tramite integrazione con l'API pubblica [Fruityvice](https://www.fruityvice.com/).
 
-## Development server
+## 📋 Descrizione
 
-To start a local development server, run:
+EatBetter permette agli utenti di cercare frutti e visualizzarne le informazioni nutrizionali (famiglia, genere, calorie, zuccheri, ecc.), con la possibilità di filtrare i risultati per categoria botanica. Il progetto nasce come esercizio pratico nell'ambito del percorso di studi Full Stack Development, con particolare attenzione a: gestione dello stato reattivo, chiamate HTTP, componentizzazione e testing.
+
+## ✨ Funzionalità
+
+- Ricerca frutta tramite integrazione con Fruityvice API
+- Filtro per categoria botanica (basato su classificazione scientifica)
+- Navbar responsive con menu hamburger per dispositivi mobile
+- Gestione dello stato con Angular Signals
+- Filtri reattivi tramite `BehaviorSubject` (ricerca testuale e per categoria)
+
+## 🛠️ Stack tecnologico
+
+- **Framework**: [Angular](https://angular.dev/) 21.2
+- **Linguaggio**: TypeScript
+- **Styling**: Tailwind CSS
+- **Testing**: [Vitest](https://vitest.dev/) + `@vitest/coverage-v8`
+- **API esterna**: [Fruityvice API](https://www.fruityvice.com/)
+
+## 🚀 Getting Started
+
+### Prerequisiti
+
+- [Node.js](https://nodejs.org/) (versione compatibile con Angular 21.2)
+- [Angular CLI](https://angular.dev/tools/cli)
+
+### Installazione
+
+```bash
+# Clona il repository
+git clone https://github.com/tuo-username/eatbetter.git
+
+# Entra nella cartella del progetto
+cd eatbetter
+
+# Installa le dipendenze
+npm install
+```
+
+### Avvio in locale
 
 ```bash
 ng serve
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+L'applicazione sarà disponibile su `http://localhost:4200/`.
 
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+### Eseguire i test
 
 ```bash
-ng generate component component-name
+ng test --watch=false
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+### Eseguire i test con code coverage
 
 ```bash
-ng generate --help
+ng test --watch=false --code-coverage
 ```
 
-## Building
+## 🌐 Demo
 
-To build the project run:
+> Deploy su Firebase Hosting in arrivo — link aggiornato a breve.
 
-```bash
-ng build
-```
+## 📄 Licenza
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+© Tutti i diritti riservati.
 
-## Running unit tests
+## 👩‍💻 Autrice
+@Gloria Maggioni (glok.dev)
 
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
+Gloria — [GitHub](https://github.com/tuo-username)
 
-```bash
-ng test
-```
+---
 
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+*Progetto realizzato nell'ambito del Master in Full Stack Development & AI Agents — Start2Impact University.*
