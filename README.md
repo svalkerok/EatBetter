@@ -75,6 +75,4 @@ ng test --watch=false --code-coverage
 
 Gloria — [GitHub](https://github.com/tuo-username)
 
----
 
-*Progetto realizzato nell'ambito del Master in Full Stack Development & AI Agents — Start2Impact University.*
