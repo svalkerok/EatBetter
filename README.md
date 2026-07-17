@@ -1,78 +1,80 @@
 # 🍎 EatBetter
 
-Applicazione web sviluppata in Angular per la ricerca e consultazione di informazioni nutrizionali sulla frutta, tramite integrazione con l'API pubblica [Fruityvice](https://www.fruityvice.com/).
+An Angular web application for searching and browsing nutritional information about fruit, powered by the [Fruityvice](https://www.fruityvice.com/) public API.
 
-## 📋 Descrizione
+## 📋 Description
 
-EatBetter permette agli utenti di cercare frutti e visualizzarne le informazioni nutrizionali (famiglia, genere, calorie, zuccheri, ecc.), con la possibilità di filtrare i risultati per categoria botanica. Il progetto nasce come esercizio pratico nell'ambito del percorso di studi Full Stack Development, con particolare attenzione a: gestione dello stato reattivo, chiamate HTTP, componentizzazione e testing.
+EatBetter lets users search for fruits and view their nutritional information (family, genus, calories, sugar content, etc.), with the ability to filter results by botanical category. The project was built as a hands-on exercise as part of a Full Stack Development study path, focusing on reactive state management, HTTP requests, component architecture, and testing.
 
-## ✨ Funzionalità
+## ✨ Features
 
-- Ricerca frutta tramite integrazione con Fruityvice API
-- Filtro per categoria botanica (basato su classificazione scientifica)
-- Navbar responsive con menu hamburger per dispositivi mobile
-- Gestione dello stato con Angular Signals
-- Filtri reattivi tramite `BehaviorSubject` (ricerca testuale e per categoria)
+- Fruit search via integration with the Fruityvice API
+- Filtering by botanical category (based on scientific classification)
+- Responsive navbar with hamburger menu for mobile devices
+- State management using Angular Signals
+- Reactive filtering via `BehaviorSubject` (text search and category filter)
 
-## 🛠️ Stack tecnologico
+## 🛠️ Tech Stack
 
 - **Framework**: [Angular](https://angular.dev/) 21.2
-- **Linguaggio**: TypeScript
+- **Language**: TypeScript
 - **Styling**: Tailwind CSS
 - **Testing**: [Vitest](https://vitest.dev/) + `@vitest/coverage-v8`
-- **API esterna**: [Fruityvice API](https://www.fruityvice.com/)
+- **External API**: [Fruityvice API](https://www.fruityvice.com/)
 
 ## 🚀 Getting Started
 
-### Prerequisiti
+### Prerequisites
 
-- [Node.js](https://nodejs.org/) (versione compatibile con Angular 21.2)
+- [Node.js](https://nodejs.org/) (version compatible with Angular 21.2)
 - [Angular CLI](https://angular.dev/tools/cli)
 
-### Installazione
+### Installation
 
 ```bash
-# Clona il repository
-git clone https://github.com/tuo-username/eatbetter.git
+# Clone the repository
+git clone https://github.com/gloriamaggioni/EatBetter.git
 
-# Entra nella cartella del progetto
-cd eatbetter
+# Move into the project folder
+cd EatBetter
 
-# Installa le dipendenze
+# Install dependencies
 npm install
 ```
 
-### Avvio in locale
+### Running locally
 
 ```bash
 ng serve
 ```
 
-L'applicazione sarà disponibile su `http://localhost:4200/`.
+The app will be available at `http://localhost:4200/`.
 
-### Eseguire i test
+### Running tests
 
 ```bash
 ng test --watch=false
 ```
 
-### Eseguire i test con code coverage
+### Running tests with code coverage
 
 ```bash
 ng test --watch=false --code-coverage
 ```
 
-## 🌐 Demo
+## 🌐 Live Demo
 
-> Deploy su Firebase Hosting in arrivo — link aggiornato a breve.
+[https://gloriamaggioni.github.io/EatBetter/](https://gloriamaggioni.github.io/EatBetter/)
 
-## 📄 Licenza
 
-© Tutti i diritti riservati.
+## 📄 License
 
-## 👩‍💻 Autrice
-@Gloria Maggioni (glok.dev)
+© All rights reserved.
 
-Gloria — [GitHub](https://github.com/tuo-username)
+
+## 👩‍💻 Author
+
+Gloria Maggioni — [GitHub](https://github.com/gloriamaggioni)
+
 
 
