@@ -7,7 +7,7 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "deploy": "ng build --configuration production --base-href /EatBetter/ && gh-pages -d dist/EatBetter/browser",
+     "deploy": "ng deploy --base-href=/EatBetter/",
     "serve:ssr:EatBetter": "node dist/EatBetter/server/server.mjs"
   },
   "private": true,
